@@ -616,7 +616,7 @@
                     <hr>
                     <div id="audioPlayerDiv" style="display: none;">
                         <audio id="audioPlayer" controls preload="none" src="">Not supported format or HTML5 is disabled</audio>
-                        <p><a id="audioVarDlLink" href="">Download currently playing resource</a><p>
+                        <p><a id="audioVarDlLink" href="" download="">Download currently playing resource</a><p>
                         <hr>
                     </div>
                     <p style="font-size: 80%;">(C) 2016, 2022 daydreamer-json, SaveHololive, Mashin, cover corp.</p>
@@ -630,6 +630,7 @@
                 };
                 document.getElementById("audioPlayer").src = src;
                 document.getElementById("audioVarDlLink").href = src;
+                document.getElementById("audioVarDlLink").download = src.match(".+/(.+?)([\?#;].*)?$")[1];
                 document.getElementById("audioPlayer").play();
             };
         </script>
