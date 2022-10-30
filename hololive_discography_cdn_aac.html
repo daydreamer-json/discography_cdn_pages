@@ -4,7 +4,7 @@
         <title>hololive</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.00">
-        <!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
         <style>
             html, body {
                 font-size: 90%;
@@ -39,6 +39,10 @@
                 color: #000;
                 background-color: #fff;
             }
+            .opening_anim {
+                color: #000;
+                background-color: #fff;
+            }
             @media (prefers-color-scheme: dark) {
                 table, th, td {
                     border: 1px solid #fff;
@@ -64,6 +68,10 @@
                     color: #fff;
                     background-color: #000;
                 }
+                .opening_anim {
+                    color: #000;
+                    background-color: #fff;
+                }
             }
             th, td {
                 padding: 5px;
@@ -84,7 +92,7 @@
                 width: 10000px;
                 padding: 2px;
             }
-            .main {
+            .main, .opening_anim {
                 font-family: system-ui;
                 width: 100vw;
                 height: 100vh;
@@ -103,9 +111,65 @@
             .playString {
                 text-decoration: underline;
             }
+            .opening_anim {
+                position: fixed;
+                height: 100vh;
+                width: 100vw;
+                z-index: 500;
+                display: block;
+            }
+            .opening_anim_image {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                position: absolute;
+                height: 10vh;
+                display: none;
+                z-index: 520;
+            }
+            .opening_anim_image_shadow {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                position: absolute;
+                height: 10vh;
+                display: none;
+                z-index: 519;
+                filter: blur(2.5vh);
+                opacity: 1;
+            }
+            .opening_text {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                width: 100vw;
+                position: absolute;
+                display: none;
+                z-index: 518;
+            }
+            .opening_text_title, .opening_text_string {
+                text-align: center;
+            }
+            .opening_text_title {
+                font-weight: 700;
+                font-size: 110%;
+                letter-spacing: 0.15em;
+            }
         </style>
     </head>
     <body>
+        <div class="opening_anim" draggable="true">
+            <img class="opening_anim_image_shadow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hololive_triangles_logo.svg/1626px-Hololive_triangles_logo.svg.png">
+            <img class="opening_anim_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hololive_triangles_logo.svg/1626px-Hololive_triangles_logo.svg.png">
+            <div class="opening_text">
+                <p class="opening_text_title">NOTICE</p>
+                <div class="opening_text_string">
+                    <p>The resources in this page are available for research and educational purposes only.</p>
+                    <p>The administrator assumes no responsibility for any damage or loss caused by the use of the resources on this page.</p>
+                    <p>Use at your own risk.</p>
+                </div>
+            </div>
+        </div>
         <div class="main">
             <h1>hololive_discography_cdn_aac</h1>
             <div class="content">
@@ -214,15 +278,15 @@
                         <tr><td>2021/07/12</td><td>IRyS</td><td>Caesura of Despair</td><td>04</td><td>Caesura of Despair (Attacca Ver.)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210712_IRyS_Caesura%20of%20Despair/04_Caesura%20of%20Despair%20(Attacca%20Ver.).m4a')">Play</a></td></tr>
                         <tr><td>2021/07/23</td><td>夏色まつり</td><td>HiHiハイテンション！</td><td>01</td><td>HiHiハイテンション！</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210723_%E5%A4%8F%E8%89%B2%E3%81%BE%E3%81%A4%E3%82%8A_HiHi%E3%83%8F%E3%82%A4%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%81/01_HiHi%E3%83%8F%E3%82%A4%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%81.m4a')">Play</a></td></tr>
                         <tr><td>2021/07/23</td><td>夏色まつり</td><td>HiHiハイテンション！</td><td>02</td><td>HiHiハイテンション！ (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210723_%E5%A4%8F%E8%89%B2%E3%81%BE%E3%81%A4%E3%82%8A_HiHi%E3%83%8F%E3%82%A4%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%81/02_HiHi%E3%83%8F%E3%82%A4%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%81%20(Instrumental).m4a')">Play</a></td></tr>
-                        <tr><td>2021/08/06</td><td>Ninomae Ina'nis</td><td>VIOLET</td><td>01</td><td>VIOLET</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210806_Ninomae%20Ina'nis_VIOLET/01_VIOLET.m4a')">Play</a></td></tr>
+                        <tr><td>2021/08/06</td><td>Ninomae Ina'nis</td><td>VIOLET</td><td>01</td><td>VIOLET</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210806_Ninomae%20Ina%27nis_VIOLET/01_VIOLET.m4a')">Play</a></td></tr>
                         <tr><td>2021/08/10</td><td>湊あくあ</td><td>海想列車</td><td>01</td><td>海想列車</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210810_%E6%B9%8A%E3%81%82%E3%81%8F%E3%81%82_%E6%B5%B7%E6%83%B3%E5%88%97%E8%BB%8A/01_%E6%B5%B7%E6%83%B3%E5%88%97%E8%BB%8A.m4a')">Play</a></td></tr>
                         <tr><td>2021/08/10</td><td>湊あくあ</td><td>海想列車</td><td>02</td><td>海想列車 (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210810_%E6%B9%8A%E3%81%82%E3%81%8F%E3%81%82_%E6%B5%B7%E6%83%B3%E5%88%97%E8%BB%8A/02_%E6%B5%B7%E6%83%B3%E5%88%97%E8%BB%8A%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2021/08/12</td><td>宝鐘マリン</td><td>Unison</td><td>01</td><td>Unison</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210812_%E5%AE%9D%E9%90%98%E3%83%9E%E3%83%AA%E3%83%B3_Unison/01_Unison.m4a')">Play</a></td></tr>
                         <tr><td>2021/08/12</td><td>宝鐘マリン</td><td>Unison</td><td>02</td><td>Unison (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210812_%E5%AE%9D%E9%90%98%E3%83%9E%E3%83%AA%E3%83%B3_Unison/02_Unison%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2021/08/14</td><td>桃鈴ねね</td><td>モモノネ</td><td>01</td><td>モモノネ</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210814_%E6%A1%83%E9%88%B4%E3%81%AD%E3%81%AD_%E3%83%A2%E3%83%A2%E3%83%8E%E3%83%8D/01_%E3%83%A2%E3%83%A2%E3%83%8E%E3%83%8D.m4a')">Play</a></td></tr>
                         <tr><td>2021/08/14</td><td>桃鈴ねね</td><td>モモノネ</td><td>02</td><td>モモノネ (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210814_%E6%A1%83%E9%88%B4%E3%81%AD%E3%81%AD_%E3%83%A2%E3%83%A2%E3%83%8E%E3%83%8D/02_%E3%83%A2%E3%83%A2%E3%83%8E%E3%83%8D%20(Instrumental).m4a')">Play</a></td></tr>
-                        <tr><td>2021/08/15</td><td>獅白ぼたん</td><td>Lioness' Pride</td><td>01</td><td>Lioness' Pride</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210815_%E7%8D%85%E7%99%BD%E3%81%BC%E3%81%9F%E3%82%93_Lioness'%20Pride/01_Lioness'%20Pride.m4a')">Play</a></td></tr>
-                        <tr><td>2021/08/15</td><td>獅白ぼたん</td><td>Lioness' Pride</td><td>02</td><td>Lioness' Pride (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210815_%E7%8D%85%E7%99%BD%E3%81%BC%E3%81%9F%E3%82%93_Lioness'%20Pride/02_Lioness'%20Pride%20(Instrumental).m4a')">Play</a></td></tr>
+                        <tr><td>2021/08/15</td><td>獅白ぼたん</td><td>Lioness' Pride</td><td>01</td><td>Lioness' Pride</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210815_%E7%8D%85%E7%99%BD%E3%81%BC%E3%81%9F%E3%82%93_Lioness%27%20Pride/01_Lioness%27%20Pride.m4a')">Play</a></td></tr>
+                        <tr><td>2021/08/15</td><td>獅白ぼたん</td><td>Lioness' Pride</td><td>02</td><td>Lioness' Pride (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210815_%E7%8D%85%E7%99%BD%E3%81%BC%E3%81%9F%E3%82%93_Lioness%27%20Pride/02_Lioness%27%20Pride%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2021/08/17</td><td>尾丸ポルカ</td><td>ぽ</td><td>01</td><td>ぽ</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210817_%E5%B0%BE%E4%B8%B8%E3%83%9D%E3%83%AB%E3%82%AB_%E3%81%BD/01_%E3%81%BD.m4a')">Play</a></td></tr>
                         <tr><td>2021/08/17</td><td>尾丸ポルカ</td><td>ぽ</td><td>02</td><td>ぽ (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210817_%E5%B0%BE%E4%B8%B8%E3%83%9D%E3%83%AB%E3%82%AB_%E3%81%BD/02_%E3%81%BD%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2021/08/18</td><td>紫咲シオン</td><td>メイジ・オブ・ヴァイオレット</td><td>01</td><td>メイジ・オブ・ヴァイオレット</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210818_%E7%B4%AB%E5%92%B2%E3%82%B7%E3%82%AA%E3%83%B3_%E3%83%A1%E3%82%A4%E3%82%B8%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%83%B4%E3%82%A1%E3%82%A4%E3%82%AA%E3%83%AC%E3%83%83%E3%83%88/01_%E3%83%A1%E3%82%A4%E3%82%B8%E3%83%BB%E3%82%AA%E3%83%96%E3%83%BB%E3%83%B4%E3%82%A1%E3%82%A4%E3%82%AA%E3%83%AC%E3%83%83%E3%83%88.m4a')">Play</a></td></tr>
@@ -270,7 +334,7 @@
                         <tr><td>2021/09/29</td><td>星街すいせい</td><td>Still Still Stellar</td><td>07</td><td>Bluerose</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210929_%E6%98%9F%E8%A1%97%E3%81%99%E3%81%84%E3%81%9B%E3%81%84_Still%20Still%20Stellar/07_Bluerose.m4a')">Play</a></td></tr>
                         <tr><td>2021/09/29</td><td>星街すいせい</td><td>Still Still Stellar</td><td>08</td><td>comet</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210929_%E6%98%9F%E8%A1%97%E3%81%99%E3%81%84%E3%81%9B%E3%81%84_Still%20Still%20Stellar/08_comet.m4a')">Play</a></td></tr>
                         <tr><td>2021/09/29</td><td>星街すいせい</td><td>Still Still Stellar</td><td>09</td><td>Andromeda</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210929_%E6%98%9F%E8%A1%97%E3%81%99%E3%81%84%E3%81%9B%E3%81%84_Still%20Still%20Stellar/09_Andromeda.m4a')">Play</a></td></tr>
-                        <tr><td>2021/09/29</td><td>星街すいせい</td><td>Still Still Stellar</td><td>10</td><td>Je t'aime。</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210929_%E6%98%9F%E8%A1%97%E3%81%99%E3%81%84%E3%81%9B%E3%81%84_Still%20Still%20Stellar/10_Je%20t'aime%E3%80%82.m4a')">Play</a></td></tr>
+                        <tr><td>2021/09/29</td><td>星街すいせい</td><td>Still Still Stellar</td><td>10</td><td>Je t'aime。</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210929_%E6%98%9F%E8%A1%97%E3%81%99%E3%81%84%E3%81%9B%E3%81%84_Still%20Still%20Stellar/10_Je%20t%27aime%E3%80%82.m4a')">Play</a></td></tr>
                         <tr><td>2021/09/29</td><td>星街すいせい</td><td>Still Still Stellar</td><td>11</td><td>Starry Jet</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210929_%E6%98%9F%E8%A1%97%E3%81%99%E3%81%84%E3%81%9B%E3%81%84_Still%20Still%20Stellar/11_Starry%20Jet.m4a')">Play</a></td></tr>
                         <tr><td>2021/09/29</td><td>星街すいせい</td><td>Still Still Stellar</td><td>12</td><td>駆けろ</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20210929_%E6%98%9F%E8%A1%97%E3%81%99%E3%81%84%E3%81%9B%E3%81%84_Still%20Still%20Stellar/12_%E9%A7%86%E3%81%91%E3%82%8D.m4a')">Play</a></td></tr>
                         <tr><td>2021/10/01</td><td>Mori Calliope</td><td>end of a life</td><td>01</td><td>end of a life</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20211001_Mori%20Calliope_end%20of%20a%20life/01_end%20of%20a%20life.m4a')">Play</a></td></tr>
@@ -427,8 +491,8 @@
                         <tr><td>2022/04/16</td><td>hololive Indonesia 1st Generation</td><td>HI-15</td><td>01</td><td>HI-15</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220416_hololive%20Indonesia%201st%20Generation_HI-15/01_HI-15.m4a')">Play</a></td></tr>
                         <tr><td>2022/04/16</td><td>hololive Indonesia 1st Generation</td><td>HI-15</td><td>02</td><td>HI-15 (Japanese ver.)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220416_hololive%20Indonesia%201st%20Generation_HI-15/02_HI-15%20(Japanese%20ver.).m4a')">Play</a></td></tr>
                         <tr><td>2022/04/16</td><td>hololive Indonesia 1st Generation</td><td>HI-15</td><td>03</td><td>HI-15 (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220416_hololive%20Indonesia%201st%20Generation_HI-15/03_HI-15%20(Instrumental).m4a')">Play</a></td></tr>
-                        <tr><td>2022/04/17</td><td>戌神ころね</td><td>Doggy god's street</td><td>01</td><td>Doggy god's street</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220417_%E6%88%8C%E7%A5%9E%E3%81%93%E3%82%8D%E3%81%AD_Doggy%20god's%20street/01_Doggy%20god's%20street.m4a')">Play</a></td></tr>
-                        <tr><td>2022/04/17</td><td>戌神ころね</td><td>Doggy god's street</td><td>02</td><td>Doggy god's street (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220417_%E6%88%8C%E7%A5%9E%E3%81%93%E3%82%8D%E3%81%AD_Doggy%20god's%20street/02_Doggy%20god's%20street%20(Instrumental).m4a')">Play</a></td></tr>
+                        <tr><td>2022/04/17</td><td>戌神ころね</td><td>Doggy god's street</td><td>01</td><td>Doggy god's street</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220417_%E6%88%8C%E7%A5%9E%E3%81%93%E3%82%8D%E3%81%AD_Doggy%20god%27s%20street/01_Doggy%20god%27s%20street.m4a')">Play</a></td></tr>
+                        <tr><td>2022/04/17</td><td>戌神ころね</td><td>Doggy god's street</td><td>02</td><td>Doggy god's street (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220417_%E6%88%8C%E7%A5%9E%E3%81%93%E3%82%8D%E3%81%AD_Doggy%20god%27s%20street/02_Doggy%20god%27s%20street%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2022/04/21</td><td>天音かなた</td><td>中空の庭</td><td>01</td><td>中空の庭</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220421_%E5%A4%A9%E9%9F%B3%E3%81%8B%E3%81%AA%E3%81%9F_%E4%B8%AD%E7%A9%BA%E3%81%AE%E5%BA%AD/01_%E4%B8%AD%E7%A9%BA%E3%81%AE%E5%BA%AD.m4a')">Play</a></td></tr>
                         <tr><td>2022/04/21</td><td>天音かなた</td><td>中空の庭</td><td>02</td><td>中空の庭 (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220421_%E5%A4%A9%E9%9F%B3%E3%81%8B%E3%81%AA%E3%81%9F_%E4%B8%AD%E7%A9%BA%E3%81%AE%E5%BA%AD/02_%E4%B8%AD%E7%A9%BA%E3%81%AE%E5%BA%AD%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2022/04/22</td><td>角巻わため</td><td>君色ハナミズキ</td><td>01</td><td>君色ハナミズキ</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220422_%E8%A7%92%E5%B7%BB%E3%82%8F%E3%81%9F%E3%82%81_%E5%90%9B%E8%89%B2%E3%83%8F%E3%83%8A%E3%83%9F%E3%82%BA%E3%82%AD/01_%E5%90%9B%E8%89%B2%E3%83%8F%E3%83%8A%E3%83%9F%E3%82%BA%E3%82%AD.m4a')">Play</a></td></tr>
@@ -505,9 +569,9 @@
                         <tr><td>2022/07/20</td><td>Mori Calliope</td><td>SHINIGAMI NOTE</td><td>01</td><td>CapSule</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220720_Mori%20Calliope_SHINIGAMI%20NOTE/01_CapSule.m4a')">Play</a></td></tr>
                         <tr><td>2022/07/20</td><td>Mori Calliope</td><td>SHINIGAMI NOTE</td><td>02</td><td>MERA MERA</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220720_Mori%20Calliope_SHINIGAMI%20NOTE/02_MERA%20MERA.m4a')">Play</a></td></tr>
                         <tr><td>2022/07/20</td><td>Mori Calliope</td><td>SHINIGAMI NOTE</td><td>03</td><td>Kamouflage</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220720_Mori%20Calliope_SHINIGAMI%20NOTE/03_Kamouflage.m4a')">Play</a></td></tr>
-                        <tr><td>2022/07/20</td><td>Mori Calliope</td><td>SHINIGAMI NOTE</td><td>04</td><td>Make 'Em Afraid</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220720_Mori%20Calliope_SHINIGAMI%20NOTE/04_Make%20'Em%20Afraid.m4a')">Play</a></td></tr>
+                        <tr><td>2022/07/20</td><td>Mori Calliope</td><td>SHINIGAMI NOTE</td><td>04</td><td>Make 'Em Afraid</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220720_Mori%20Calliope_SHINIGAMI%20NOTE/04_Make%20%27Em%20Afraid.m4a')">Play</a></td></tr>
                         <tr><td>2022/07/20</td><td>Mori Calliope</td><td>SHINIGAMI NOTE</td><td>05</td><td>Holy嫉妬</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220720_Mori%20Calliope_SHINIGAMI%20NOTE/05_Holy%E5%AB%89%E5%A6%AC.m4a')">Play</a></td></tr>
-                        <tr><td>2022/07/20</td><td>Mori Calliope</td><td>SHINIGAMI NOTE</td><td>06</td><td>Let's End the World</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220720_Mori%20Calliope_SHINIGAMI%20NOTE/06_Let's%20End%20the%20World.m4a')">Play</a></td></tr>
+                        <tr><td>2022/07/20</td><td>Mori Calliope</td><td>SHINIGAMI NOTE</td><td>06</td><td>Let's End the World</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220720_Mori%20Calliope_SHINIGAMI%20NOTE/06_Let%27s%20End%20the%20World.m4a')">Play</a></td></tr>
                         <tr><td>2022/07/23</td><td>夏色まつり</td><td>ネバギバ夏色ストーリー！</td><td>01</td><td>ネバギバ夏色ストーリー！</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220723_%E5%A4%8F%E8%89%B2%E3%81%BE%E3%81%A4%E3%82%8A_%E3%83%8D%E3%83%90%E3%82%AE%E3%83%90%E5%A4%8F%E8%89%B2%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%EF%BC%81/01_%E3%83%8D%E3%83%90%E3%82%AE%E3%83%90%E5%A4%8F%E8%89%B2%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%EF%BC%81.m4a')">Play</a></td></tr>
                         <tr><td>2022/07/23</td><td>夏色まつり</td><td>ネバギバ夏色ストーリー！</td><td>02</td><td>ネバギバ夏色ストーリー！ (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220723_%E5%A4%8F%E8%89%B2%E3%81%BE%E3%81%A4%E3%82%8A_%E3%83%8D%E3%83%90%E3%82%AE%E3%83%90%E5%A4%8F%E8%89%B2%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%EF%BC%81/02_%E3%83%8D%E3%83%90%E3%82%AE%E3%83%90%E5%A4%8F%E8%89%B2%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%EF%BC%81%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2022/07/25</td><td>猫又おかゆ</td><td>毒杯スワロウ</td><td>01</td><td>毒杯スワロウ</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220725_%E7%8C%AB%E5%8F%88%E3%81%8A%E3%81%8B%E3%82%86_%E6%AF%92%E6%9D%AF%E3%82%B9%E3%83%AF%E3%83%AD%E3%82%A6/01_%E6%AF%92%E6%9D%AF%E3%82%B9%E3%83%AF%E3%83%AD%E3%82%A6.m4a')">Play</a></td></tr>
@@ -525,8 +589,8 @@
                         <tr><td>2022/07/30</td><td>ORIO</td><td>Over Time</td><td>04</td><td>Over Time (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220730_ORIO_Over%20Time/04_Over%20Time%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2022/07/30</td><td>ORIO</td><td>Over Time</td><td>05</td><td>Like a Phoenix (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220730_ORIO_Over%20Time/05_Like%20a%20Phoenix%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2022/07/30</td><td>ORIO</td><td>Over Time</td><td>06</td><td>Pray (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220730_ORIO_Over%20Time/06_Pray%20(Instrumental).m4a')">Play</a></td></tr>
-                        <tr><td>2022/07/31</td><td>宝鐘マリン</td><td>I'm Your Treasure Box ＊あなたは マリンせんちょうを たからばこからみつけた。</td><td>01</td><td>I'm Your Treasure Box ‛＊あなたは マリンせんちょうを たからばこからみつけた。</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220731_%E5%AE%9D%E9%90%98%E3%83%9E%E3%83%AA%E3%83%B3_I'm%20Your%20Treasure%20Box%20%EF%BC%8A%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AF%20%E3%83%9E%E3%83%AA%E3%83%B3%E3%81%9B%E3%82%93%E3%81%A1%E3%82%87%E3%81%86%E3%82%92%20%E3%81%9F%E3%81%8B%E3%82%89%E3%81%B0%E3%81%93%E3%81%8B%E3%82%89%E3%81%BF%E3%81%A4%E3%81%91%E3%81%9F%E3%80%82/01_I'm%20Your%20Treasure%20Box%20%E2%80%9B%EF%BC%8A%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AF%20%E3%83%9E%E3%83%AA%E3%83%B3%E3%81%9B%E3%82%93%E3%81%A1%E3%82%87%E3%81%86%E3%82%92%20%E3%81%9F%E3%81%8B%E3%82%89%E3%81%B0%E3%81%93%E3%81%8B%E3%82%89%E3%81%BF%E3%81%A4%E3%81%91%E3%81%9F%E3%80%82.m4a')">Play</a></td></tr>
-                        <tr><td>2022/07/31</td><td>宝鐘マリン</td><td>I'm Your Treasure Box ＊あなたは マリンせんちょうを たからばこからみつけた。</td><td>02</td><td>I'm Your Treasure Box ‛＊あなたは マリンせんちょうを たからばこからみつけた。 (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220731_%E5%AE%9D%E9%90%98%E3%83%9E%E3%83%AA%E3%83%B3_I'm%20Your%20Treasure%20Box%20%EF%BC%8A%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AF%20%E3%83%9E%E3%83%AA%E3%83%B3%E3%81%9B%E3%82%93%E3%81%A1%E3%82%87%E3%81%86%E3%82%92%20%E3%81%9F%E3%81%8B%E3%82%89%E3%81%B0%E3%81%93%E3%81%8B%E3%82%89%E3%81%BF%E3%81%A4%E3%81%91%E3%81%9F%E3%80%82/02_I'm%20Your%20Treasure%20Box%20%E2%80%9B%EF%BC%8A%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AF%20%E3%83%9E%E3%83%AA%E3%83%B3%E3%81%9B%E3%82%93%E3%81%A1%E3%82%87%E3%81%86%E3%82%92%20%E3%81%9F%E3%81%8B%E3%82%89%E3%81%B0%E3%81%93%E3%81%8B%E3%82%89%E3%81%BF%E3%81%A4%E3%81%91%E3%81%9F%E3%80%82%20(Instrumental).m4a')">Play</a></td></tr>
+                        <tr><td>2022/07/31</td><td>宝鐘マリン</td><td>I'm Your Treasure Box ＊あなたは マリンせんちょうを たからばこからみつけた。</td><td>01</td><td>I'm Your Treasure Box ‛＊あなたは マリンせんちょうを たからばこからみつけた。</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220731_%E5%AE%9D%E9%90%98%E3%83%9E%E3%83%AA%E3%83%B3_I%27m%20Your%20Treasure%20Box%20%EF%BC%8A%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AF%20%E3%83%9E%E3%83%AA%E3%83%B3%E3%81%9B%E3%82%93%E3%81%A1%E3%82%87%E3%81%86%E3%82%92%20%E3%81%9F%E3%81%8B%E3%82%89%E3%81%B0%E3%81%93%E3%81%8B%E3%82%89%E3%81%BF%E3%81%A4%E3%81%91%E3%81%9F%E3%80%82/01_I%27m%20Your%20Treasure%20Box%20%E2%80%9B%EF%BC%8A%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AF%20%E3%83%9E%E3%83%AA%E3%83%B3%E3%81%9B%E3%82%93%E3%81%A1%E3%82%87%E3%81%86%E3%82%92%20%E3%81%9F%E3%81%8B%E3%82%89%E3%81%B0%E3%81%93%E3%81%8B%E3%82%89%E3%81%BF%E3%81%A4%E3%81%91%E3%81%9F%E3%80%82.m4a')">Play</a></td></tr>
+                        <tr><td>2022/07/31</td><td>宝鐘マリン</td><td>I'm Your Treasure Box ＊あなたは マリンせんちょうを たからばこからみつけた。</td><td>02</td><td>I'm Your Treasure Box ‛＊あなたは マリンせんちょうを たからばこからみつけた。 (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220731_%E5%AE%9D%E9%90%98%E3%83%9E%E3%83%AA%E3%83%B3_I%27m%20Your%20Treasure%20Box%20%EF%BC%8A%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AF%20%E3%83%9E%E3%83%AA%E3%83%B3%E3%81%9B%E3%82%93%E3%81%A1%E3%82%87%E3%81%86%E3%82%92%20%E3%81%9F%E3%81%8B%E3%82%89%E3%81%B0%E3%81%93%E3%81%8B%E3%82%89%E3%81%BF%E3%81%A4%E3%81%91%E3%81%9F%E3%80%82/02_I%27m%20Your%20Treasure%20Box%20%E2%80%9B%EF%BC%8A%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AF%20%E3%83%9E%E3%83%AA%E3%83%B3%E3%81%9B%E3%82%93%E3%81%A1%E3%82%87%E3%81%86%E3%82%92%20%E3%81%9F%E3%81%8B%E3%82%89%E3%81%B0%E3%81%93%E3%81%8B%E3%82%89%E3%81%BF%E3%81%A4%E3%81%91%E3%81%9F%E3%80%82%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2022/08/02</td><td>さくらみこ</td><td>ベイビーダンス</td><td>01</td><td>ベイビーダンス</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220802_%E3%81%95%E3%81%8F%E3%82%89%E3%81%BF%E3%81%93_%E3%83%99%E3%82%A4%E3%83%93%E3%83%BC%E3%83%80%E3%83%B3%E3%82%B9/01_%E3%83%99%E3%82%A4%E3%83%93%E3%83%BC%E3%83%80%E3%83%B3%E3%82%B9.m4a')">Play</a></td></tr>
                         <tr><td>2022/08/02</td><td>さくらみこ</td><td>ベイビーダンス</td><td>02</td><td>ベイビーダンス (Instrumental)</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220802_%E3%81%95%E3%81%8F%E3%82%89%E3%81%BF%E3%81%93_%E3%83%99%E3%82%A4%E3%83%93%E3%83%BC%E3%83%80%E3%83%B3%E3%82%B9/02_%E3%83%99%E3%82%A4%E3%83%93%E3%83%BC%E3%83%80%E3%83%B3%E3%82%B9%20(Instrumental).m4a')">Play</a></td></tr>
                         <tr><td>2022/08/06</td><td>AZKi</td><td>petrichor</td><td>01</td><td>petrichor</td><td><a class="playString" onclick="audioPlayTrig('https://raw.githubusercontent.com/daydreamer-json/discography_cdn/main/hololive/hololive_discography_cdn_aac/20220806_AZKi_petrichor/01_petrichor.m4a')">Play</a></td></tr>
@@ -624,6 +688,25 @@
             </div>
         </div>
         <script>
+            $(window).on('load', function (){
+                setTimeout(function(){
+                    $('.opening_anim_image_shadow').fadeIn(1000);
+                    $('.opening_anim_image').fadeIn(600, function() {
+                        setTimeout(function(){
+                            $('.opening_anim_image_shadow').fadeOut(600);
+                            $('.opening_anim_image').fadeOut(600, function() {
+                                $('.opening_text_shadow').fadeIn(600);
+                                $('.opening_text').fadeIn(600, function() {
+                                    setTimeout(function(){
+                                        $('.opening_anim').fadeOut(1000);
+                                    }, 2400);
+                                });
+                            });
+                        }, 1100);
+                    });
+                }, 1000);
+                // $('.opening_text').show();
+            });
             function audioPlayTrig (src) {
                 if (document.getElementById("audioPlayerDiv").style.display == "none") {
                     document.getElementById("audioPlayerDiv").style.display = "block";
