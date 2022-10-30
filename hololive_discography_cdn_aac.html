@@ -20,9 +20,12 @@
             }
             html, body {
                 color: #000;
-                background-color: #fff;
                 margin: 0;
                 line-height: 1;
+            }
+            .main {
+                background: rgb(218,255,255);
+                background: linear-gradient(220deg, rgba(218,255,255,1) 0%, rgba(142,245,255,1) 100%);
             }
             hr {
                 border: 0 none;
@@ -38,7 +41,8 @@
             }
             .footer {
                 color: #000;
-                background-color: #fff;
+                background: rgb(218,255,255);
+                background: linear-gradient(220deg, rgba(218,255,255,1) 0%, rgba(142,245,255,1) 100%);
             }
             .opening_anim {
                 color: #000;
@@ -50,9 +54,10 @@
                 th {
                     background-color: #555;
                 }
-                html, body {
+                html, body, .main {
                     color: #fff;
-                    background-color: #000;
+                    background: rgb(0,43,51);
+                    background: linear-gradient(220deg, rgba(0,43,51,1) 0%, rgba(0,101,128,1) 100%);
                 }
                 hr {
                     color: #fff;
@@ -66,7 +71,8 @@
                 }
                 .footer {
                     color: #fff;
-                    background-color: #000;
+                    background: rgb(0,43,51);
+                    background: linear-gradient(220deg, rgba(0,43,51,1) 0%, rgba(0,101,128,1) 100%);
                 }
                 .opening_anim {
                     color: #000;
@@ -91,7 +97,7 @@
                 width: 10000px;
                 padding: 2px;
             }
-            .main, .opening_anim {
+            .main {
                 font-family: 'A-OTF UD Shin Go Pro', system-ui;
                 width: 100vw;
                 height: 100vh;
@@ -111,6 +117,7 @@
                 text-decoration: underline;
             }
             .opening_anim {
+                font-family: 'A-OTF UD Shin Go Pro', system-ui;
                 position: fixed;
                 height: 100vh;
                 width: 100vw;
@@ -124,9 +131,9 @@
                 left: 50%;
                 transform: translateY(-55%) translateX(-50%);
                 position: absolute;
-                height: 10vh;
                 display: none;
                 z-index: 520;
+                will-change: filter;
             }
             .opening_anim_image_f {
                 top: 50%;
@@ -136,17 +143,18 @@
                 width: 50vw;
                 display: none;
                 z-index: 520;
+                will-change: filter;
             }
             .opening_anim_image_shadow {
                 top: 50%;
                 left: 50%;
                 transform: translateY(-55%) translateX(-50%);
                 position: absolute;
-                height: 10vh;
                 display: none;
                 z-index: 519;
-                filter: blur(2.5vh);
+                filter: blur(1.5vh);
                 opacity: 1;
+                will-change: filter;
             }
             .opening_anim_image_shadow_f {
                 top: 50%;
@@ -156,27 +164,30 @@
                 width: 50vw;
                 display: none;
                 z-index: 519;
-                filter: blur(2.5vh);
+                filter: blur(1.5vh);
                 opacity: 1;
+                will-change: filter;
             }
             .opening_text {
                 top: 50%;
                 left: 50%;
                 transform: translateY(-55%) translateX(-50%);
-                width: 80vw;
+                width: 90vw;
                 position: absolute;
                 display: none;
                 z-index: 518;
+                will-change: filter;
             }
             .opening_text_shadow {
                 top: 50%;
                 left: 50%;
                 transform: translateY(-55%) translateX(-50%);
-                width: 80vw;
+                width: 90vw;
                 position: absolute;
                 display: none;
                 z-index: 517;
                 filter: blur(1.5vh);
+                will-change: filter;
             }
             .opening_text_title, .opening_text_string {
                 text-align: center;
@@ -191,36 +202,37 @@
                 margin: 0.3em auto 0.3em auto;
                 line-height: 1.5;
             }
+            @media screen and (max-width: 400px) {
+                .opening_anim_image {
+                    height: 10vh;
+                }
+                .opening_anim_image_shadow {
+                    height: 10vh;
+                }
+            }
+            @media screen and (min-width: 401px) {
+                .opening_anim_image {
+                    height: 10vw;
+                }
+                .opening_anim_image_shadow {
+                    height: 10vw;
+                }
+            }
         </style>
     </head>
     <body>
         <div class="opening_anim" draggable="true">
-            <img class="opening_anim_image_shadow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hololive_triangles_logo.svg/1626px-Hololive_triangles_logo.svg.png">
-            <img class="opening_anim_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hololive_triangles_logo.svg/1626px-Hololive_triangles_logo.svg.png">
+            <img class="opening_anim_image" id="opening_anim_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hololive_triangles_logo.svg/1626px-Hololive_triangles_logo.svg.png">
             <!--
             <img class="opening_anim_image_shadow_f" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hololive_logo.svg/2560px-Hololive_logo.svg.png">
             <img class="opening_anim_image_f" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hololive_logo.svg/2560px-Hololive_logo.svg.png">
             -->
-            <div class="opening_text">
+            <div class="opening_text" id="opening_text">
                 <p class="opening_text_title">NOTICE / お知らせ</p>
                 <div class="opening_text_string">
                     <p>The resources in this page are available for research and educational purposes only.</p>
                     <p>The administrator assumes no responsibility for any damage or loss caused by the use of the resources on this page.</p>
-                    <p>Use at your own risk.</p>
-                </div>
-                <br><br>
-                <div class="opening_text_string">
-                    <p>本ページのリソースは、研究・教育目的でのみご利用いただけます。</p>
-                    <p>本ページのリソースを利用したことによるいかなる損害についても、管理者は一切の責任を負いません。</p>
-                    <p>ご自身の責任においてご利用ください。</p>
-                </div>
-            </div>
-            <div class="opening_text_shadow">
-                <p class="opening_text_title">NOTICE / お知らせ</p>
-                <div class="opening_text_string">
-                    <p>The resources in this page are available for research and educational purposes only.</p>
-                    <p>The administrator assumes no responsibility for any damage or loss caused by the use of the resources on this page.</p>
-                    <p>Use at your own risk.</p>
+                    <p>Please use at your own risk.</p>
                 </div>
                 <br><br>
                 <div class="opening_text_string">
@@ -231,7 +243,7 @@
             </div>
         </div>
         <div class="main">
-            <h1>hololive_discography_cdn_aac</h1>
+            <h2>hololive_discography_cdn_aac</h1>
             <div class="content">
                 <table>
                     <thead>
@@ -749,6 +761,14 @@
         </div>
         <script>
             $(window).on('load', function (){
+                var clone_element1 = document.getElementById('opening_text').cloneNode(true);
+                var clone_element2 = document.getElementById('opening_anim_image').cloneNode(true);
+                clone_element1.id = "opening_text_shadow";
+                clone_element1.className = "opening_text_shadow";
+                clone_element2.id = "opening_anim_image_shadow";
+                clone_element2.className = "opening_anim_image_shadow";
+                document.getElementById('opening_text').after(clone_element1);
+                document.getElementById('opening_anim_image').after(clone_element2);
                 setTimeout(function(){
                     $('.opening_anim_image_shadow,.opening_anim_image_shadow_f').fadeIn(800);
                     $('.opening_anim_image,.opening_anim_image_f').fadeIn(600, function() {
