@@ -41,7 +41,6 @@
             }
             .opening_anim {
                 color: #000;
-                background-color: #fff;
             }
             @media (prefers-color-scheme: dark) {
                 table, th, td {
@@ -70,7 +69,6 @@
                 }
                 .opening_anim {
                     color: #000;
-                    background-color: #fff;
                 }
             }
             th, td {
@@ -117,6 +115,8 @@
                 width: 100vw;
                 z-index: 500;
                 display: block;
+                background: rgb(218,255,255);
+                background: linear-gradient(220deg, rgba(218,255,255,1) 0%, rgba(142,245,255,1) 100%);
             }
             .opening_anim_image {
                 top: 50%;
@@ -124,6 +124,15 @@
                 transform: translateY(-50%) translateX(-50%);
                 position: absolute;
                 height: 10vh;
+                display: none;
+                z-index: 520;
+            }
+            .opening_anim_image_f {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                position: absolute;
+                width: 50vw;
                 display: none;
                 z-index: 520;
             }
@@ -138,14 +147,35 @@
                 filter: blur(2.5vh);
                 opacity: 1;
             }
+            .opening_anim_image_shadow_f {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                position: absolute;
+                width: 50vw;
+                display: none;
+                z-index: 519;
+                filter: blur(2.5vh);
+                opacity: 1;
+            }
             .opening_text {
                 top: 50%;
                 left: 50%;
                 transform: translateY(-50%) translateX(-50%);
-                width: 100vw;
+                width: 80vw;
                 position: absolute;
                 display: none;
                 z-index: 518;
+            }
+            .opening_text_shadow {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                width: 80vw;
+                position: absolute;
+                display: none;
+                z-index: 517;
+                filter: blur(1.5vh);
             }
             .opening_text_title, .opening_text_string {
                 text-align: center;
@@ -154,19 +184,49 @@
                 font-weight: 700;
                 font-size: 110%;
                 letter-spacing: 0.15em;
+                margin: 2.25em auto 2.25em auto;
             }
+            .opening_text_string p {
+                margin: 0.3em auto 0.3em auto;
+                line-height: 1.5;
+            }
+
         </style>
     </head>
     <body>
         <div class="opening_anim" draggable="true">
             <img class="opening_anim_image_shadow" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hololive_triangles_logo.svg/1626px-Hololive_triangles_logo.svg.png">
             <img class="opening_anim_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hololive_triangles_logo.svg/1626px-Hololive_triangles_logo.svg.png">
+            <!--
+            <img class="opening_anim_image_shadow_f" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hololive_logo.svg/2560px-Hololive_logo.svg.png">
+            <img class="opening_anim_image_f" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hololive_logo.svg/2560px-Hololive_logo.svg.png">
+            -->
             <div class="opening_text">
-                <p class="opening_text_title">NOTICE</p>
+                <p class="opening_text_title">NOTICE / お知らせ</p>
                 <div class="opening_text_string">
                     <p>The resources in this page are available for research and educational purposes only.</p>
                     <p>The administrator assumes no responsibility for any damage or loss caused by the use of the resources on this page.</p>
                     <p>Use at your own risk.</p>
+                </div>
+                <br><br>
+                <div class="opening_text_string">
+                    <p>本ページのリソースは、研究・教育目的でのみご利用いただけます。</p>
+                    <p>本ページのリソースを利用したことによるいかなる損害についても、管理者は一切の責任を負いません。</p>
+                    <p>ご自身の責任においてご利用ください。</p>
+                </div>
+            </div>
+            <div class="opening_text_shadow">
+                <p class="opening_text_title">NOTICE / お知らせ</p>
+                <div class="opening_text_string">
+                    <p>The resources in this page are available for research and educational purposes only.</p>
+                    <p>The administrator assumes no responsibility for any damage or loss caused by the use of the resources on this page.</p>
+                    <p>Use at your own risk.</p>
+                </div>
+                <br><br>
+                <div class="opening_text_string">
+                    <p>本ページのリソースは、研究・教育目的でのみご利用いただけます。</p>
+                    <p>本ページのリソースを利用したことによるいかなる損害についても、管理者は一切の責任を負いません。</p>
+                    <p>ご自身の責任においてご利用ください。</p>
                 </div>
             </div>
         </div>
@@ -690,22 +750,28 @@
         <script>
             $(window).on('load', function (){
                 setTimeout(function(){
-                    $('.opening_anim_image_shadow').fadeIn(1000);
-                    $('.opening_anim_image').fadeIn(600, function() {
+                    $('.opening_anim_image_shadow,.opening_anim_image_shadow_f').fadeIn(800);
+                    $('.opening_anim_image,.opening_anim_image_f').fadeIn(600, function() {
                         setTimeout(function(){
-                            $('.opening_anim_image_shadow').fadeOut(600);
-                            $('.opening_anim_image').fadeOut(600, function() {
+                            $('.opening_anim_image_shadow,.opening_anim_image_shadow_f').fadeOut(600);
+                            $('.opening_anim_image,.opening_anim_image_f').fadeOut(600, function() {
                                 $('.opening_text_shadow').fadeIn(600);
                                 $('.opening_text').fadeIn(600, function() {
                                     setTimeout(function(){
-                                        $('.opening_anim').fadeOut(1000);
+                                        $('.opening_text_shadow').fadeOut(600);
+                                        $('.opening_text').fadeOut(600, function() {
+                                            // $('.opening_anim').fadeOut(1000);
+                                            setTimeout(function(){
+                                                $('.opening_anim').fadeOut(1000);
+                                            }, 400);
+                                        });
                                     }, 2400);
                                 });
                             });
                         }, 1100);
                     });
                 }, 1000);
-                // $('.opening_text').show();
+                // $('.opening_text,.opening_text_shadow').show();
             });
             function audioPlayTrig (src) {
                 if (document.getElementById("audioPlayerDiv").style.display == "none") {
