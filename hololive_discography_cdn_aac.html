@@ -749,7 +749,6 @@
             </div>
             <div class="footer">
                 <footer>
-                    <hr>
                     <div id="audioPlayerDiv" style="display: none;">
                         <audio id="audioPlayer" controls preload="none" src="">Not supported format or HTML5 is disabled</audio>
                         <p><a id="audioVarDlLink" href="" download="">Download currently playing resource</a><p>
@@ -761,6 +760,9 @@
         </div>
         <script>
             $(window).on('load', function (){
+                // ここで、オープニングの各種処理を定義します。
+                
+                // HTML要素を複製し、ぼかしをかけて、影を演出します。
                 var clone_element1 = document.getElementById('opening_text').cloneNode(true);
                 var clone_element2 = document.getElementById('opening_anim_image').cloneNode(true);
                 clone_element1.id = "opening_text_shadow";
@@ -769,6 +771,9 @@
                 clone_element2.className = "opening_anim_image_shadow";
                 document.getElementById('opening_text').after(clone_element1);
                 document.getElementById('opening_anim_image').after(clone_element2);
+                
+                // オープニングアニメーションをJSで定義します。
+                // CSSはJSよりも機能が少ないので不採用とします。
                 setTimeout(function(){
                     $('.opening_anim_image_shadow,.opening_anim_image_shadow_f').fadeIn(800);
                     $('.opening_anim_image,.opening_anim_image_f').fadeIn(600, function() {
@@ -794,6 +799,7 @@
                 // $('.opening_text,.opening_text_shadow').show();
             });
             function audioPlayTrig (src) {
+                // ここで、Playボタンがクリックされたときのオーディオ再生処理を定義します
                 if (document.getElementById("audioPlayerDiv").style.display == "none") {
                     document.getElementById("audioPlayerDiv").style.display = "block";
                 };
