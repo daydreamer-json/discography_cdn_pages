@@ -12,6 +12,7 @@
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/DavidLazic/audio-visualizer@master/visualizer.js" integrity="sha512-awsVC7svZtGFSmzqm9Hqv78zW0RBwcqHqSlYbZf2OuqWNX8uNuu6ko/QN46v8rbJIIpKd1rLmw1gFCusrJQCRA==" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/gh/daydreamer-json/SomeFontRepo@main/somefontrepo.css" rel="stylesheet" type="text/css" media="all">
         <style>
             html, body {
@@ -225,6 +226,12 @@
                     height: 10vw;
                 }
             }
+
+
+
+
+            /* VISUALIZER */
+            
         </style>
     </head>
     <body>
@@ -1006,7 +1013,6 @@
                     <div id="audioPlayerDiv" style="display: none;">
                         <audio id="audioPlayer" controls preload="none" src="">Not supported format or HTML5 is disabled</audio>
                         <p><a id="audioVarDlLink" href="" download="">Download currently playing resource</a><p>
-                        <hr>
                     </div>
                     <p style="font-size: 80%;">(C) 2016, 2022 daydreamer-json, SaveHololive, Mashin, cover corp.</p>
                 </footer>
@@ -1051,6 +1057,7 @@
                     });
                 }, 1000);
                 // $('.opening_text,.opening_text_shadow').show();
+                
             });
             function audioPlayTrig (src) {
                 // ここで、Playボタンがクリックされたときのオーディオ再生処理を定義します
