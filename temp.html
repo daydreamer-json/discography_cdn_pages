@@ -321,7 +321,7 @@
                         var temp_td_src_a = document.createElement('a');
                         var temp_td_src_span = document.createElement('span');
                         temp_td_src_a.classList.add('playString');
-                        temp_td_src_a.setAttribute('onclick', 'audioPlayTrig(file_database[i].src)');
+                        temp_td_src_a.setAttribute('onclick', `${audioPlayTrig(file_database[i].src)}`);
                         temp_td_src_span.classList.add('material-symbols-rounded');
                         temp_td_src_span.innerHTML = "play_arrow";
                         temp_td_releaseDate.innerHTML = file_database[i].releaseDate;
