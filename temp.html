@@ -196,6 +196,27 @@
                 z-index: 518;
                 will-change: filter;
             }
+            .loading_database_text {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-55%) translateX(-50%);
+                width: 90vw;
+                position: absolute;
+                display: none;
+                z-index: 610;
+                will-change: filter;
+            }
+            .loading_database_text_shadow {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-55%) translateX(-50%);
+                width: 90vw;
+                position: absolute;
+                display: none;
+                z-index: 609;
+                filter: blur(1.5vh);
+                will-change: filter;
+            }
             .opening_text_shadow {
                 top: 50%;
                 left: 50%;
@@ -207,7 +228,7 @@
                 filter: blur(1.5vh);
                 will-change: filter;
             }
-            .opening_text_title, .opening_text_string {
+            .opening_text_title, .opening_text_string, .loading_database_text_title {
                 text-align: center;
             }
             .opening_text_title {
@@ -216,7 +237,7 @@
                 letter-spacing: 0.15em;
                 margin: 2.25em auto 2.25em auto;
             }
-            .opening_text_string p {
+            .opening_text_string p, .loading_database_text_title {
                 margin: 0.3em auto 0.3em auto;
                 line-height: 1.5;
             }
@@ -254,6 +275,9 @@
     </head>
     <body>
         <div class="opening_anim" draggable="true">
+            <div class="loading_database_text" id="loading_database_text">
+                <p class="loading_database_text_title">Loading database ...</p>
+            </div>
             <img class="opening_anim_image" id="opening_anim_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Hololive_triangles_logo.svg/1626px-Hololive_triangles_logo.svg.png">
             <!--
             <img class="opening_anim_image_shadow_f" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hololive_logo.svg/2560px-Hololive_logo.svg.png">
@@ -340,6 +364,7 @@
                         temp_tr.appendChild(temp_td_trackName);
                         document.getElementById('table_tbody').appendChild(temp_tr);
                     };
+                    $('.loading_database_text').fadeOut(800);
                 };
 
                 // ここで、オープニングの各種処理を定義します。
