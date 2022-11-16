@@ -330,7 +330,8 @@
                         temp_td_trackNumber.innerHTML = file_database[i].trackNumber;
                         temp_td_trackName.innerHTML = file_database[i].trackName;
                         var temp_tr = document.createElement('tr');
-                        temp_td_src.appendChild(temp_td_src_a.appendChild(temp_td_src_span));
+                        temp_td_src_a.appendChild(temp_td_src_span)
+                        temp_td_src.appendChild(temp_td_src_a);
                         temp_tr.appendChild(temp_td_releaseDate);
                         temp_tr.appendChild(temp_td_albumArtist);
                         temp_tr.appendChild(temp_td_albumTitle);
