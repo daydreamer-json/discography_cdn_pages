@@ -413,9 +413,15 @@
                 document.getElementById("dbg_audio_buffered").innerHTML = "--";
                 var audioFileSrcUrl_Base1 = "https://raw.githubusercontent.com/daydreamer-json/discography_cdn_002/main/hololive/hololive_discography_cdn";
                 var audioFileSrc1_ext = "flac";
-                document.getElementById("audioPlayer").src = `${audioFileSrcUrl_Base1}/${src}.${audioFileSrc1_ext}`;
-                document.getElementById("audioVarDlLink1").href = `${audioFileSrcUrl_Base1}/${src}.${audioFileSrc1_ext}`;
-                document.getElementById("audioVarDlLink1").download = `${src}.${audioFileSrc1_ext}`;
+                if (src.match(/^http(s|)/)) {
+                    document.getElementById("audioPlayer").src = src;
+                    document.getElementById("audioVarDlLink1").href = src;
+                    document.getElementById("audioVarDlLink1").download = src.match(".+/(.+?)([\?#;].*)?$")[1];
+                } else {
+                    document.getElementById("audioPlayer").src = `${audioFileSrcUrl_Base1}/${src}.${audioFileSrc1_ext}`;
+                    document.getElementById("audioVarDlLink1").href = `${audioFileSrcUrl_Base1}/${src}.${audioFileSrc1_ext}`;
+                    document.getElementById("audioVarDlLink1").download = `${src}.${audioFileSrc1_ext}`;
+                }
                 if (document.getElementById("audioPlayerDiv").style.display == "none") {
                     document.getElementById("audioPlayerDiv").style.display = "block";
                 };
