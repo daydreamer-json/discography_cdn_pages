@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head prefix="og: https://ogp.me/ns#">
+        <title>planetarium</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.00">
+        <meta name="robots" content="noindex,nofollow,noarchive">
+        <meta property="og:title" content="planetarium" />
+        <meta property="og:site_name" content="planetarium" />
+        <meta property="og:description" content="This page has an archive of album planetarium" />
+        <meta property="og:url" content="https://daydreamer-json.github.io/discography_cdn_pages/planetarium.html" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link href="https://cdn.jsdelivr.net/gh/daydreamer-json/SomeFontRepo@main/somefontrepo.css" rel="stylesheet" type="text/css" media="all">
+        <style>
+            .material-symbols-rounded {
+                font-variation-settings:
+                'FILL' 1,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 48
+            }
+            html, body {
+                font-size: 90%;
+            }
+            table, th, td {
+                border-collapse: collapse;
+                white-space: nowrap;
+                border: 1px solid #000;
+            }
+            th {
+                background-color: rgba(255,255,255,0.3);
+            }
+            html, body {
+                color: #000;
+                margin: 0;
+                line-height: 1;
+            }
+            .main {
+                background: rgb(218,255,255);
+                background: linear-gradient(220deg, rgba(218,255,255,1) 0%, rgba(142,245,255,1) 100%);
+            }
+            hr {
+                border: 0 none;
+                height: 1.5px;
+                color: #000;
+                background-color: #000;
+            }
+            a {
+                color: #000;
+            }
+            .unavailable_text {
+                color: #808080;
+            }
+            .footer {
+                color: #000;
+                background: rgb(218,255,255);
+                background: linear-gradient(220deg, rgba(218,255,255,1) 0%, rgba(142,245,255,1) 100%);
+            }
+            .opening_anim {
+                color: #000;
+            }
+            @media (prefers-color-scheme: dark) {
+                table, th, td {
+                    border: 1px solid #fff;
+                }
+                th {
+                    background-color: rgba(0,0,0,0.3);
+                }
+                html, body, .main {
+                    color: #fff;
+                    background: rgb(0,43,51);
+                    background: linear-gradient(220deg, rgba(0,43,51,1) 0%, rgba(0,101,128,1) 100%);
+                }
+                hr {
+                    color: #fff;
+                    background-color: #fff;
+                }
+                a {
+                    color: #fff;
+                }
+                .unavailable_text {
+                    color: #808080;
+                }
+                .footer {
+                    color: #fff;
+                    background: rgb(0,43,51);
+                    background: linear-gradient(220deg, rgba(0,43,51,1) 0%, rgba(0,101,128,1) 100%);
+                }
+                .opening_anim {
+                    color: #000;
+                }
+            }
+            th, td {
+                padding: 5px;
+            }
+            .title_head h1 {
+                margin: 0;
+                padding-top: 30px;
+            }
+            header {
+                text-align: center;
+            }
+            .content {
+                width: 100%;
+                overflow-x: scroll;
+                overflow-y: auto;
+            }
+            .content_table {
+                width: 10000px;
+                padding: 2px;
+            }
+            .main {
+                font-family: 'A-OTF UD Shin Go Pro', system-ui;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+            }
+            .footer audio {
+                width: 100vw;
+            }
+            .footer {
+                position: fixed;
+                width: 100vw;
+                bottom: 0%;
+            }
+            .playString {
+                /* text-decoration: underline; */
+                cursor: pointer;
+            }
+            .opening_anim {
+                font-family: 'A-OTF UD Shin Go Pro', system-ui;
+                position: fixed;
+                height: 100vh;
+                width: 100vw;
+                z-index: 500;
+                display: block;
+                background: rgb(218,255,255);
+                background: linear-gradient(220deg, rgba(218,255,255,1) 0%, rgba(142,245,255,1) 100%);
+            }
+            .opening_anim_image {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-55%) translateX(-50%);
+                position: absolute;
+                display: none;
+                z-index: 520;
+                will-change: filter;
+            }
+            .opening_anim_image_f {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-55%) translateX(-50%);
+                position: absolute;
+                width: 50vw;
+                display: none;
+                z-index: 520;
+                will-change: filter;
+            }
+            .opening_anim_image_shadow {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-55%) translateX(-50%);
+                position: absolute;
+                display: none;
+                z-index: 519;
+                filter: blur(1.5vh);
+                opacity: 1;
+                will-change: filter;
+            }
+            .opening_anim_image_shadow_f {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-55%) translateX(-50%);
+                position: absolute;
+                width: 50vw;
+                display: none;
+                z-index: 519;
+                filter: blur(1.5vh);
+                opacity: 1;
+                will-change: filter;
+            }
+            .opening_text {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-55%) translateX(-50%);
+                width: 90vw;
+                position: absolute;
+                display: none;
+                z-index: 518;
+                will-change: filter;
+            }
+            .loading_database_text {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-55%) translateX(-50%);
+                width: 90vw;
+                position: absolute;
+                display: none;
+                z-index: 610;
+                will-change: filter;
+            }
+            .loading_database_text_shadow {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-55%) translateX(-50%);
+                width: 90vw;
+                position: absolute;
+                display: none;
+                z-index: 609;
+                filter: blur(1.5vh);
+                will-change: filter;
+            }
+            .opening_text_shadow {
+                top: 50%;
+                left: 50%;
+                transform: translateY(-55%) translateX(-50%);
+                width: 90vw;
+                position: absolute;
+                display: none;
+                z-index: 517;
+                filter: blur(1.5vh);
+                will-change: filter;
+            }
+            .opening_text_title, .opening_text_string, .loading_database_text_title {
+                text-align: center;
+            }
+            .opening_text_title {
+                font-weight: 700;
+                font-size: 110%;
+                letter-spacing: 0.15em;
+                margin: 2.25em auto 2.25em auto;
+            }
+            .opening_text_string p, .loading_database_text_title {
+                margin: 0.3em auto 0.3em auto;
+                line-height: 1.5;
+            }
+            @media screen and (max-width: 400px) {
+                .opening_anim_image {
+                    height: 10vh;
+                }
+                .opening_anim_image_shadow {
+                    height: 10vh;
+                }
+            }
+            @media screen and (min-width: 401px) {
+                .opening_anim_image {
+                    height: 10vw;
+                }
+                .opening_anim_image_shadow {
+                    height: 10vw;
+                }
+            }
+            .material-symbols-rounded {
+                display: block;
+                line-height: 0;
+                font-size: 20px;
+                text-decoration: none;
+            }
+            .ytlink {
+                text-decoration: none;
+            }
+
+
+
+            /* VISUALIZER */
+            
+        </style>
+    </head>
+    <body>
+        <div class="opening_anim" draggable="true">
+            <div class="loading_database_text" id="loading_database_text">
+                <p class="loading_database_text_title">Loading database ...</p>
+            </div>
+            <!--
+            <img class="opening_anim_image_shadow_f" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hololive_logo.svg/2560px-Hololive_logo.svg.png">
+            <img class="opening_anim_image_f" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hololive_logo.svg/2560px-Hololive_logo.svg.png">
+            -->
+            <div class="opening_text" id="opening_text">
+                <p class="opening_text_title">NOTICE / お知らせ</p>
+                <div class="opening_text_string">
+                    <p>The resources in this page are available for research and educational purposes only.</p>
+                    <p>The administrator assumes no responsibility for any damage or loss caused by the use of the resources on this page.</p>
+                    <p>Please use at your own risk.</p>
+                </div>
+                <br><br>
+                <div class="opening_text_string">
+                    <p>本ページのリソースは、研究・教育目的でのみご利用いただけます。</p>
+                    <p>本ページのリソースを利用したことによるいかなる損害についても、管理者は一切の責任を負いません。</p>
+                    <p>ご自身の責任においてご利用ください。</p>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <h2>planetarium</h2>
+            <h3>Aqu3ra</h3>
+            <div class="content">
+                <p class="loading_database_inl">Loading database ... <span id="load_db_cur">0</span> / <span id="load_db_all">0</span></p>
+                <table>
+                    <thead>
+                        <tr><th><span class="material-symbols-rounded">play_arrow</span></th><th>#</th><th>TrackName</th></tr>
+                    </thead>
+                    <tbody id="table_tbody">
+                    </tbody>
+                </table>
+                <br><br><br><br><br><br><br><br><br><br>
+            </div>
+            <div class="footer">
+                <footer>
+                    <div id="audioPlayerDiv" style="display: none;">
+                        <audio id="audioPlayer" controls preload="none" src="">
+                            Not supported format or HTML5 is disabled
+                        </audio>
+                        <p>Download currently playing resource: <a id="audioVarDlLink4" href="" download="">FLAC</a> / <a id="audioVarDlLink2" href="" download="">AAC 384kbps</a> / <a id="audioVarDlLink3" href="" download="">AAC 144kbps</a> / <a id="audioVarDlLink1" href="" download="">Opus 128kbps</a><p>
+                        <p style="font-size: 80%;">Debug: <span id="dbg_audio_timeinfo">--:--.-- / --:--.--</span> , <span id="dbg_audio_buffered">--.--</span> % Buffered , <span id="dbg_audio_ibl">-.--</span> s Min-IBL</p>
+                    </div>
+                    <p style="font-size: 80%;">(C) 2022 daydreamer-json, Mashin, Aqu3ra</p>
+                </footer>
+            </div>
+        </div>
+        <script>
+            $(window).on('load', function (){
+                var clone_element1 = document.getElementById('opening_text').cloneNode(true);
+                clone_element1.id = "opening_text_shadow";
+                clone_element1.className = "opening_text_shadow";
+                document.getElementById('opening_text').after(clone_element1);
+                
+                setTimeout(function(){
+                    $('.opening_text_shadow').fadeIn(600);
+                    $('.opening_text').fadeIn(600, function() {
+                        setTimeout(function(){
+                            $('.opening_text_shadow').fadeOut(600);
+                            $('.opening_text').fadeOut(600, function() {
+                                // $('.opening_anim').fadeOut(1000);
+                                setTimeout(function(){
+                                    $('.opening_anim').fadeOut(1000);
+                                    loadDatabase();
+                                }, 400);
+                            });
+                        }, 2400);
+                    });
+                }, 1000);
+                // $('.opening_text,.opening_text_shadow').show();
+            });
+            function loadDatabase () {
+                let file_database_url = "https://cdn.jsdelivr.net/gh/daydreamer-json/discography_cdn_pages@main/res/json/planetarium.json";
+                let file_database_req = new XMLHttpRequest();
+                file_database_req.open('GET', file_database_url);
+                file_database_req.responseType = 'json';
+                file_database_req.send();
+                file_database_req.onload = function () {
+                    let file_database = file_database_req.response;
+                    document.getElementById('load_db_cur').innerHTML = "0";
+                    document.getElementById('load_db_all').innerHTML = file_database.length;
+                    for (let i = 0; i < file_database.length; i++) {
+                        document.getElementById('load_db_cur').innerHTML = i + 1;
+                        var temp_td_trackNumber = document.createElement('td');
+                        var temp_td_trackName = document.createElement('td');
+                        var temp_td_src = document.createElement('td');
+                        var temp_td_src_a = document.createElement('a');
+                        var temp_td_src_span = document.createElement('span');
+                        temp_td_src_a.classList.add('playString');
+                        temp_td_src_a.setAttribute('onclick', `audioPlayTrig('${file_database[i].src}')`);
+                        temp_td_src_span.classList.add('material-symbols-rounded');
+                        temp_td_src_span.innerHTML = "play_arrow";
+                        temp_td_trackNumber.innerHTML = file_database[i].trackNumber;
+                        temp_td_trackName.innerHTML = file_database[i].trackName;
+                        var temp_tr = document.createElement('tr');
+                        temp_td_src_a.appendChild(temp_td_src_span)
+                        temp_td_src.appendChild(temp_td_src_a);
+                        temp_tr.appendChild(temp_td_src);
+                        temp_tr.appendChild(temp_td_trackNumber);
+                        temp_tr.appendChild(temp_td_trackName);
+                        document.getElementById('table_tbody').appendChild(temp_tr);
+                    };
+                    $('.loading_database_inl').hide();
+                };
+            };
+            function audioPlayTrig (src) {
+                document.getElementById("audioPlayer").pause();
+                for (var i = 1; i < 99999; i++) {
+                    clearInterval(i);
+                };
+                document.getElementById("dbg_audio_timeinfo").innerHTML = "--:--.-- / --:--.--";
+                document.getElementById("dbg_audio_buffered").innerHTML = "--";
+                var audioFileSrcUrl_Base1 = "https://cdn.jsdelivr.net/gh/daydreamer-json/discography_cdn@main/other/aqu3ra/planetarium/opus";
+                var audioFileSrcUrl_Base2 = "https://cdn.jsdelivr.net/gh/daydreamer-json/discography_cdn@main/other/aqu3ra/planetarium/aac_384k";
+                var audioFileSrcUrl_Base3 = "https://cdn.jsdelivr.net/gh/daydreamer-json/discography_cdn@main/other/aqu3ra/planetarium/aac_144k";
+                var audioFileSrcUrl_Base4 = "https://raw.githubusercontent.com/gh/daydreamer-json/discography_cdn/main/other/aqu3ra/planetarium/flac";
+                var audioFileSrc1_ext = "opus";
+                var audioFileSrc2_ext = "m4a";
+                var audioFileSrc3_ext = "m4a";
+                var audioFileSrc4_ext = "flac";
+                if (Howler.codecs("opus") == true && Howler.codecs("webm") == true) {
+                    document.getElementById("audioPlayer").src = `${audioFileSrcUrl_Base1}/${src}.${audioFileSrc1_ext}`;
+                } else if (Howler.codecs("m4a") == true && Howler.codecs("aac") == true) {
+                    document.getElementById("audioPlayer").src = `${audioFileSrcUrl_Base2}/${src}.${audioFileSrc2_ext}`;
+                } else {
+                    document.getElementById("audioPlayer").src = `${audioFileSrcUrl_Base3}/${src}.${audioFileSrc3_ext}`;
+                };
+                document.getElementById("audioVarDlLink1").href = `${audioFileSrcUrl_Base1}/${src}.${audioFileSrc1_ext}`;
+                document.getElementById("audioVarDlLink1").download = `${src}.${audioFileSrc1_ext}`;
+                document.getElementById("audioVarDlLink2").href = `${audioFileSrcUrl_Base2}/${src}.${audioFileSrc2_ext}`;
+                document.getElementById("audioVarDlLink2").download = `${src}.${audioFileSrc2_ext}`;
+                document.getElementById("audioVarDlLink3").href = `${audioFileSrcUrl_Base3}/${src}.${audioFileSrc3_ext}`;
+                document.getElementById("audioVarDlLink3").download = `${src}.${audioFileSrc3_ext}`;
+                document.getElementById("audioVarDlLink4").href = `${audioFileSrcUrl_Base4}/${src}.${audioFileSrc4_ext}`;
+                document.getElementById("audioVarDlLink4").download = `${src}.${audioFileSrc4_ext}`;
+                /* 外部LFS入力時の制御
+                if (src.match(/^http(s|)/)) {
+                    document.getElementById("audioPlayer").src = src;
+                    document.getElementById("audioVarDlLink1").href = src;
+                    document.getElementById("audioVarDlLink1").download = src.match(".+/(.+?)([\?#;].*)?$")[1];
+                } else {
+                    document.getElementById("audioPlayer").src = `${audioFileSrcUrl_Base1}/${src}.${audioFileSrc1_ext}`;
+                    document.getElementById("audioVarDlLink1").href = `${audioFileSrcUrl_Base1}/${src}.${audioFileSrc1_ext}`;
+                    document.getElementById("audioVarDlLink1").download = `${src}.${audioFileSrc1_ext}`;
+                };
+                */
+                if (document.getElementById("audioPlayerDiv").style.display == "none") {
+                    document.getElementById("audioPlayerDiv").style.display = "block";
+                };
+                document.getElementById("audioPlayer").play();
+                setInterval(audioDebugDispRefresh, 10);
+            };
+            function audioDebugDispRefresh () {
+                var currentMinute = Math.floor(document.getElementById("audioPlayer").currentTime / 60);
+                var currentSecondMil = floorDecimal((document.getElementById("audioPlayer").currentTime - currentMinute * 60), 2);
+                var currentSecondMilDisp = currentSecondMil.toFixed(2);
+                var durationMinute = Math.floor(document.getElementById("audioPlayer").duration / 60);
+                var durationSecondMil = floorDecimal((document.getElementById("audioPlayer").duration - durationMinute * 60), 2);
+                var durationSecondMilDisp = durationSecondMil.toFixed(2);
+                if (currentMinute < 10) {currentMinute = "0" + currentMinute;};
+                if (currentSecondMil < 10) {currentSecondMilDisp = "0" + currentSecondMilDisp;};
+                if (durationMinute < 10) {durationMinute = "0" + durationMinute;};
+                if (durationSecondMil < 10) {durationSecondMilDisp = "0" + durationSecondMilDisp;};
+                var bufferedLength = 0;
+                for (let i = 0; i < document.getElementById("audioPlayer").buffered.length; i++) {
+                    bufferedLength = bufferedLength + (document.getElementById("audioPlayer").buffered.end(i) - document.getElementById("audioPlayer").buffered.start(i));
+                };
+                var incoming_buffer_length = new Array();
+                for (let j = 0; j < document.getElementById("audioPlayer").buffered.length; j++) {
+                    if (document.getElementById("audioPlayer").buffered.end(j) - document.getElementById("audioPlayer").currentTime >= 0) {
+                        incoming_buffer_length.push(document.getElementById("audioPlayer").buffered.end(j) - document.getElementById("audioPlayer").currentTime);
+                    };
+                };
+                document.getElementById("dbg_audio_timeinfo").innerHTML = `${currentMinute}:${currentSecondMilDisp} / ${durationMinute}:${durationSecondMilDisp}`;
+                document.getElementById("dbg_audio_buffered").innerHTML = `${ceilDecimal((bufferedLength / document.getElementById("audioPlayer").duration) * 100, 2).toFixed(2)}`;
+                document.getElementById("dbg_audio_ibl").innerHTML = `${floorDecimal((incoming_buffer_length.reduce(aryMax)), 2).toFixed(2)}`;
+            };
+            function floorDecimal (value, n) {
+                return Math.floor(value * Math.pow(10, n)) / Math.pow(10, n);
+            };
+            function ceilDecimal (value, n) {
+                return Math.ceil(value * Math.pow(10, n)) / Math.pow(10, n);
+            };
+            function roundDecimal (value, n) {
+                return Math.round(value * Math.pow(10, n)) / Math.pow(10, n);
+            };
+            function sleep(waitMsec) {
+                var startMsec = new Date();
+                while (new Date() - startMsec < waitMsec);
+            };
+            const aryMax = function (a, b) {return Math.max(a, b);};
+            const aryMin = function (a, b) {return Math.min(a, b);};
+        </script>
+    </body>
+</html>
