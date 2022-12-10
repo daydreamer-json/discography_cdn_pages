@@ -40,8 +40,7 @@
                 line-height: 1;
             }
             .main {
-                background: rgb(218,255,255);
-                background: linear-gradient(220deg, rgba(218,255,255,1) 0%, rgba(142,245,255,1) 100%);
+                background: rgba(255,255,255,0);
             }
             hr {
                 border: 0 none;
@@ -57,11 +56,13 @@
             }
             .footer {
                 color: #000;
-                background: rgb(218,255,255);
-                background: linear-gradient(220deg, rgba(218,255,255,1) 0%, rgba(142,245,255,1) 100%);
+                background: rgba(255,255,255,0);
             }
             .opening_anim {
                 color: #000;
+            }
+            .bg img {
+                filter: contrast(40%) brightness(150%);
             }
             @media (prefers-color-scheme: dark) {
                 table, th, td {
@@ -72,8 +73,7 @@
                 }
                 html, body, .main {
                     color: #fff;
-                    background: rgb(0,43,51);
-                    background: linear-gradient(220deg, rgba(0,43,51,1) 0%, rgba(0,101,128,1) 100%);
+                    background: rgba(0,0,0,0);
                 }
                 hr {
                     color: #fff;
@@ -87,11 +87,13 @@
                 }
                 .footer {
                     color: #fff;
-                    background: rgb(0,43,51);
-                    background: linear-gradient(220deg, rgba(0,43,51,1) 0%, rgba(0,101,128,1) 100%);
+                    background: rgba(0,0,0,0);
                 }
                 .opening_anim {
                     color: #000;
+                }
+                .bg img {
+                    filter: brightness(85%);
                 }
             }
             th, td {
@@ -265,6 +267,20 @@
             .ytlink {
                 text-decoration: none;
             }
+            .bg {
+                display: block;
+                position: fixed;
+                height: 100vh;
+                width: 100vw;
+                z-index: -10;
+            }
+            .bg img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                margin: auto;
+                overflow: hidden;
+            }
 
 
 
@@ -273,6 +289,9 @@
         </style>
     </head>
     <body>
+        <div class="bg" draggable="true">
+            <img src="https://cdn.jsdelivr.net/gh/daydreamer-json/discography_cdn@main/other/aqu3ra/planetarium/cover_orig_2x_q85.jpg">
+        </div>
         <div class="opening_anim" draggable="true">
             <div class="loading_database_text" id="loading_database_text">
                 <p class="loading_database_text_title">Loading database ...</p>
